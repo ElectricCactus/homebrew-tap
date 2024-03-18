@@ -1,18 +1,19 @@
 class CommitBot < Formula
-  desc "A PR writing tool for lazy developers using GPT."
+  desc "PR writing tool for lazy developers using GPT"
   homepage "https://github.com/ElectricCactus/commit-bot"
-  
-  depends_on "oven-sh/bun/bun" => :build
 
-  version "0.0.1"
+  url "https://github.com/ElectricCactus/commit-bot/archive/refs/heads/main.tar.gz"
+  sha256 "86b6e48ec51031451f35bfce2f428c2456225a55ea11a3cb56592c7ec0646a6a"
   
-  url "https://github.com/ElectricCactus/commit-bot/archive/refs/heads/main.zip"
+  version "0.0.1"
   head "https://github.com/ElectricCactus/commit-bot.git", branch: "main"
+
+  depends_on "oven-sh/bun/bun" => :build
 
   def install
     system "bun", "install", "--frozen-lockfile"
     system "bun", "compile"
-    libexec.install Dir["bin"]
+    libexec.install "bin"
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
