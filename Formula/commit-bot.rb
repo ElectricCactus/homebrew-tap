@@ -8,9 +8,6 @@ class CommitBot < Formula
 
   depends_on "oven-sh/bun/bun" => :build
 
-  bottle do
-  end
-
   def install
     system "bun", "install", "--frozen-lockfile"
     system "bun", "compile"
