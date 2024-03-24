@@ -6,6 +6,10 @@ class CommitBot < Formula
 
   head "https://github.com/ElectricCactus/commit-bot.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "7f413892fd6d7ce34a433fce860545fc3910892f59df6230ff3cb32eac973ab8"
+  end
+
   depends_on "oven-sh/bun/bun" => :build
 
   def install
